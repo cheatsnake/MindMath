@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import styled from 'styled-components';
+import Game from './pages/Game';
 import Menu from './pages/Menu';
 import Modes from './pages/Modes';
 
@@ -24,6 +25,9 @@ const App = () => {
                     </Route>
                     <Route path="/modes">
                         <Modes/>
+                    </Route>
+                    <Route path="/game">
+                        <Game/>
                     </Route>
                     <Redirect to="/menu"/>
                 </Switch>

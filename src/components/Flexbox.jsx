@@ -3,6 +3,7 @@ import styled from 'styled-components';
 
 const StyledFlexbox = styled.div`
     width: 100%;
+    height: ${props => props.height || "auto"};
     display: flex;
     flex-wrap: ${props => props.wrap || 'nowrap'};
     flex-direction: ${props => props.direction || 'row'};

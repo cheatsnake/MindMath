@@ -5,7 +5,7 @@ const StyledButton = styled.button`
     cursor: pointer;
     border: none;
     border-radius: 0.2rem;
-    transition: 0.5s all;
+    transition: 0.4s all;
     background-color: ${props => props.theme.colors.grey};
     color: ${props => props.theme.font.dark};
 `
@@ -29,9 +29,16 @@ const StyledMenuButton = styled(Link)`
     }
 `
 
-const StyledModeButton = styled(StyledButton)`
+const StyledModeButton = styled(Link)`
+    cursor: pointer;
+    border: none;
+    border-radius: 0.2rem;
+    transition: 0.4s all;
+    background-color: ${props => props.theme.colors.grey};
+    color: ${props => props.theme.font.dark};
     display: flex;
     flex-direction: column;
+    text-decoration: none;
     justify-content: center;
     align-items: center;
     margin-top: 1rem;
@@ -50,6 +57,7 @@ const StyledModeButton = styled(StyledButton)`
 const StyledBackButton = styled(Link)`
     cursor: pointer;
     border: none;
+    opacity: 0.7;
     border-radius: 0.2rem;
     transition: 0.5s all;
     color: ${props => props.theme.font.dark};
@@ -66,7 +74,25 @@ const StyledBackButton = styled(Link)`
             color: ${props => props.theme.colors.accent};
         }
     }
-    
+    &:hover {
+        opacity: 1;
+    }
 `
 
-export {StyledMenuButton, StyledModeButton, StyledBackButton};
+const StyledKeyboardButton = styled(StyledButton)`
+    border-radius: 0;
+    font-size: 2rem;
+    font-weight: 300;
+    background-color: ${props => props.theme.colors.grey};
+    ion-icon {
+        font-size: 2rem;
+    }
+    &:hover {
+        background-color: ${props => props.theme.colors.accent};
+    }
+    &:focus {
+        outline: none;
+    }
+`
+
+export {StyledMenuButton, StyledModeButton, StyledBackButton, StyledKeyboardButton};
