@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import Game from './pages/Game';
 import Menu from './pages/Menu';
 import Modes from './pages/Modes';
+import Settings from './pages/Settings';
 
 const StyledApp = styled.div`
     display: flex;
@@ -28,6 +29,9 @@ const App = () => {
                     </Route>
                     <Route path="/game">
                         <Game/>
+                    </Route>
+                    <Route path="/settings">
+                        <Settings/>
                     </Route>
                     <Redirect to="/menu"/>
                 </Switch>

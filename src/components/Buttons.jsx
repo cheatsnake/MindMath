@@ -94,5 +94,12 @@ const StyledKeyboardButton = styled(StyledButton)`
         outline: none;
     }
 `
+const StyledBitButton = styled(StyledButton)`
+    padding: 0.1rem 0.8rem 0.3rem 0.8rem;
+    font-size: 2rem;
+    &:hover {
+        background-color: ${props => props.theme.colors.accent};
+    }
+`
 
-export {StyledMenuButton, StyledModeButton, StyledBackButton, StyledKeyboardButton};
+export {StyledMenuButton, StyledModeButton, StyledBackButton, StyledKeyboardButton, StyledBitButton};

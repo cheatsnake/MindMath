@@ -1,10 +1,10 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useEffect } from 'react';
+import styled, { keyframes } from 'styled-components';
 import { Grid } from 'styled-css-grid';
 import { StyledBackButton, StyledKeyboardButton } from '../components/Buttons';
 import Flexbox from '../components/Flexbox';
 import { useDispatch, useSelector } from 'react-redux';
-import { addAnswerReducer, delAnswerReducer} from '../store/AnswerReducer';
+import { addAnswerReducer, delAnswerReducer, clsAnswerReducer} from '../store/AnswerReducer';
 
 const StyledTask = styled.div`
     font-size: 2.7rem;
@@ -18,7 +18,7 @@ const StyledAnswer = styled.input`
     background-color: transparent;
     border: none;
     font-size: 3.2rem;
-    border-bottom: 1px solid ${props => props.theme.colors.accent};
+    /* border-bottom: 1px solid ${props => props.theme.colors.accent}; */
     &:focus {
         outline: none;
     }
@@ -29,6 +29,9 @@ const Game = (props) => {
     const dispatch = useDispatch();
     const answer = useSelector(state => state.answer.answer);
     const task = useSelector(state => state.task.task);
+    const mode = useSelector(state => state.task.mode);
+
+    const modes = ['ADDITION', 'SUBSTRACTION', 'MULTIPLICATION', 'DIVISION'];
 
     function onNumber(num) {
         dispatch(addAnswerReducer(num));
@@ -38,17 +41,47 @@ const Game = (props) => {
         dispatch(delAnswerReducer());
     }
     
-    function addTask() {
-        dispatch({type: 'ADDITION'});
+    const addTask = () => {
+            if (mode) {
+                dispatch({type: mode});
+            } else {
+                dispatch({type: modes[Math.floor(Math.random() * modes.length)]});
+            }
+    };
+
+    const checkAnswer = () => {
+        let check;
+        switch (task.operation) {
+            case "+":
+                check = task.first + task.second;
+                break;
+            case "-":
+                check = task.first - task.second;
+                break;
+            case "*":
+                check = task.first * task.second;
+                break;
+            case "/":
+                check = task.first / task.second;
+                break;
+            default:
+                break;
+        }
+        if(check === +answer) {
+            addTask();
+            dispatch(clsAnswerReducer());
+        }
     }
+
+    useEffect(() => addTask(), []);
 
     return (
         <Flexbox direction="column">
-            <StyledBackButton to="/menu">
+            <StyledBackButton onClick={() => dispatch(clsAnswerReducer())} to="/menu">
                 <ion-icon name="arrow-back-outline"></ion-icon>
             </StyledBackButton>
             <Flexbox direction="column" justify="center" align="center" height="100%">
-                <StyledTask>{task.first} {task.operation} {task.second}</StyledTask>
+                <StyledTask>{task.first} {task.operation === '*' ? <ion-icon name="close-outline"></ion-icon> : task.operation} {task.second}</StyledTask>
                 <StyledTask>?</StyledTask>
                 <StyledAnswer 
                     type="number" 
@@ -70,7 +103,7 @@ const Game = (props) => {
                     <ion-icon name="backspace-outline"></ion-icon>
                 </StyledKeyboardButton>
                 <StyledKeyboardButton onClick={() => onNumber('0')}>0</StyledKeyboardButton>
-                <StyledKeyboardButton onClick={addTask}>
+                <StyledKeyboardButton onClick={checkAnswer}>
                     <ion-icon name="checkmark-outline"></ion-icon>
                 </StyledKeyboardButton>
             </Grid>

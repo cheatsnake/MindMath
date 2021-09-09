@@ -3,7 +3,8 @@ const defaultState = {
 }
 
 const ADD = 'ADD',
-      DEL = 'DEL';
+      DEL = 'DEL',
+      CLS = 'CLS';
 
 const AnswerReducer = (state = defaultState, action) => {
     switch (action.type) {
@@ -15,6 +16,8 @@ const AnswerReducer = (state = defaultState, action) => {
             }
         case DEL:
             return {...state, answer: state.answer.substring(0, state.answer.length - 1)}
+        case CLS:
+            return {...state, answer: ''}
         default:
             return state;
     }
@@ -23,3 +26,4 @@ const AnswerReducer = (state = defaultState, action) => {
 export default AnswerReducer;
 export const addAnswerReducer = (payload) => ({type: ADD, payload});
 export const delAnswerReducer = () => ({type: DEL});
+export const clsAnswerReducer = () => ({type: CLS});
