@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import { Grid } from 'styled-css-grid';
-import { StyledBackButton, StyledKeyboardButton } from '../components/Buttons';
+import { BackButton, StyledKeyboardButton } from '../components/Buttons';
 import Flexbox from '../components/Flexbox';
 import { useDispatch, useSelector } from 'react-redux';
 import { addAnswerReducer, delAnswerReducer, clsAnswerReducer} from '../store/AnswerReducer';
@@ -18,7 +18,6 @@ const StyledAnswer = styled.input`
     background-color: transparent;
     border: none;
     font-size: 3.2rem;
-    /* border-bottom: 1px solid ${props => props.theme.colors.accent}; */
     &:focus {
         outline: none;
     }
@@ -77,11 +76,9 @@ const Game = (props) => {
 
     return (
         <Flexbox direction="column">
-            <StyledBackButton onClick={() => dispatch(clsAnswerReducer())} to="/menu">
-                <ion-icon name="arrow-back-outline"></ion-icon>
-            </StyledBackButton>
+            <BackButton/>
             <Flexbox direction="column" justify="center" align="center" height="100%">
-                <StyledTask>{task.first} {task.operation === '*' ? <ion-icon name="close-outline"></ion-icon> : task.operation} {task.second}</StyledTask>
+                <StyledTask>{task.first} {task.operation === '*' ? '×' : task.operation} {task.second}</StyledTask>
                 <StyledTask>?</StyledTask>
                 <StyledAnswer 
                     type="number" 

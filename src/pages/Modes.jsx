@@ -1,23 +1,21 @@
 import React from 'react';
-import { StyledBackButton, StyledModeButton } from '../components/Buttons';
+import { BackButton, StyledModeButton } from '../components/Buttons';
 import Flexbox from '../components/Flexbox';
 import { modeTaskReducer } from '../store/TaskReducer';
 import { useDispatch } from 'react-redux';
+import { StyledTitle } from '../components/Texts';
 
 const Modes = () => {
 
     const dispatch = useDispatch();
-
     function onMode(mode) {
         dispatch(modeTaskReducer(mode))
     }
 
     return (
         <Flexbox direction="column" justify="center" align="center" padding="1rem">
-            <StyledBackButton to="/menu">
-                <ion-icon name="arrow-back-outline"></ion-icon>
-            </StyledBackButton>
-            <h1>Choose game mode</h1>
+            <BackButton/>
+            <StyledTitle fsize="1.5rem">Choose game mode</StyledTitle>
             <Flexbox justify="space-around" margin="1rem 0 0 0" wrap="wrap">
                 <StyledModeButton onClick={() => onMode('ADDITION')} to='/game'>
                     <ion-icon name="add-outline"></ion-icon>

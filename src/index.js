@@ -10,11 +10,12 @@ const Global = createGlobalStyle`
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: 'Azeret Mono', monospace;
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
   'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
   sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  -moz-osx-font-smoothing: grayscale; */
 
   ::-webkit-scrollbar {
     width: 10px;
@@ -23,10 +24,10 @@ const Global = createGlobalStyle`
     background: #0e151c;
   }
   ::-webkit-scrollbar-thumb {
-    background: #1d9bf0;
+    background: #0fa36a;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #1d9bf0;
+    background: #13c581;
   }
 }
 

@@ -1,5 +1,8 @@
 import styled from "styled-components";
 import {Link} from 'react-router-dom';
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { clsAnswerReducer } from '../store/AnswerReducer';
 
 const StyledButton = styled.button`
     cursor: pointer;
@@ -41,6 +44,8 @@ const StyledModeButton = styled(Link)`
     text-decoration: none;
     justify-content: center;
     align-items: center;
+    font-weight: 400;
+    font-size: 0.7rem;
     margin-top: 1rem;
     min-width: 45%;
     padding: 1rem;
@@ -102,4 +107,38 @@ const StyledBitButton = styled(StyledButton)`
     }
 `
 
-export {StyledMenuButton, StyledModeButton, StyledBackButton, StyledKeyboardButton, StyledBitButton};
+const StyledLinkButton = styled.a`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-weight: 600;
+    border-radius: 0.2rem;
+    transition: 0.4s all;
+    color: ${props => props.theme.font.dark};
+    padding: 0.4rem 1rem 0.5rem 1rem;
+    font-size: 1rem;
+    background-color: transparent;
+    border: 2px solid ${props => props.theme.font.dark};
+    text-decoration: none;
+    ion-icon {
+        margin-left: 0.5rem;
+        font-size: 1.6rem;
+    }
+    &:hover {
+        background-color: ${props => props.theme.font.dark};
+        color: ${props => props.theme.font.light};
+    }
+`
+
+export const BackButton = () => {
+    const dispatch = useDispatch();
+    return (
+        <StyledBackButton onClick={() => dispatch(clsAnswerReducer())} to="/menu">
+            <ion-icon name="arrow-back-outline"></ion-icon>
+        </StyledBackButton>
+    );
+};
+
+
+export {StyledMenuButton, StyledModeButton, StyledBackButton, StyledKeyboardButton, StyledBitButton, StyledLinkButton};

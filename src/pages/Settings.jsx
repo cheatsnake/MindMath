@@ -1,26 +1,15 @@
 import React from 'react';
 import styled from 'styled-components';
-import { StyledBackButton, StyledBitButton } from '../components/Buttons';
+import { BackButton, StyledBitButton } from '../components/Buttons';
 import Flexbox from '../components/Flexbox';
 import { useDispatch, useSelector } from 'react-redux';
-import { clsAnswerReducer } from '../store/AnswerReducer';
 import { changeAddTaskReducer, changeSubTaskReducer, changeMulTaskReducer, changeDivTaskReducer } from '../store/TaskReducer';
+import { StyledDescr, StyledSubTitle, StyledTitle} from '../components/Texts';
 
 const StyledCount = styled.div`
     padding: 0 1rem;
     font-weight: 600;
     font-size: 2rem;
-`
-const StyledDescr = styled.p`
-    font-weight: 300;
-    margin-top: 1rem;
-    text-align: center;
-`
-
-const StyledSubTitle = styled.h2`
-    text-align: right;
-    font-size: 1.2rem;
-    font-weight: 500;
 `
 
 const Settings = () => {
@@ -46,10 +35,8 @@ const Settings = () => {
 
     return (
         <Flexbox direction="column" justify="center" align="center" padding="1rem">
-            <StyledBackButton onClick={() => dispatch(clsAnswerReducer())} to="/menu">
-                <ion-icon name="arrow-back-outline"></ion-icon>
-            </StyledBackButton>
-            <h1>Settings</h1>
+            <BackButton/>
+            <StyledTitle>Settings</StyledTitle>
             <Flexbox direction="column">
                 <StyledDescr>Select the maximum bit depth of the numbers for various arithmetic operations.</StyledDescr>
                 <Flexbox justify="space-between" align="center" margin="2rem 0 0 0">
@@ -61,7 +48,7 @@ const Settings = () => {
                     </Flexbox>
                 </Flexbox>
                 <Flexbox justify="space-between" align="center" margin="1rem 0 0 0">
-                    <StyledSubTitle>Subtraction</StyledSubTitle>
+                    <StyledSubTitle>Subtract</StyledSubTitle>
                     <Flexbox width="auto">
                         <StyledBitButton onClick={() => onUpBit(changeSubTaskReducer, task.subLenght)}>+</StyledBitButton>
                         <StyledCount>{task.subLenght.toString().length}</StyledCount>
@@ -69,7 +56,7 @@ const Settings = () => {
                     </Flexbox>
                 </Flexbox>
                 <Flexbox justify="space-between" align="center" margin="1rem 0 0 0">
-                    <StyledSubTitle>Multiplication</StyledSubTitle>
+                    <StyledSubTitle>Multiply</StyledSubTitle>
                     <Flexbox width="auto">
                         <StyledBitButton onClick={() => onUpBit(changeMulTaskReducer, task.mulLenght)}>+</StyledBitButton>
                         <StyledCount>{task.mulLenght.toString().length}</StyledCount>
