@@ -25,7 +25,6 @@ const Settings = () => {
     }
 
     function onDownBit(func, state) {
-        console.log(state);
         if(state.toString().length > 1) {
             dispatch(func(+(state.toString().substring(0, state.toString().length - 1))))
         } else {
