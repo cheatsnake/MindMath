@@ -26,8 +26,7 @@ const About = () => {
             <StyledDescr align="left">
             Mind Math is a open source web application for training oral counting. The application has 5 main modes: a mode with addition of numbers, subtraction, multiplication, division and a random mode combining the previous 4. You can independently configure the maximum number of digits for each mode.
             </StyledDescr>
-            <StyledDescr align="left">I also tried to collect some tips on improving the oral account found on the Internet. I hope the application will be useful to you and you will not only pass the time, but also train your brain.</StyledDescr>
-            <StyledDescr align="left">In the future, I plan to add various modes for speed and perhaps some company mode with a gradual complication of the difficulty level.</StyledDescr>
+            <StyledDescr align="left">I hope the application will be useful to you and you will not only pass the time, but also train your brain.</StyledDescr>
             <Flexbox direction="column" justify="center" align="center" padding="2rem 0 0 0">
                 <StyledLinkButton target="_blank" href="https://github.com/cheatsnake/MindMath">View on GitHub <ion-icon name="logo-github"></ion-icon></StyledLinkButton>
                 <StyledLink target="_blank" href="https://cheatsnake.github.io/">Made by <b>Yury</b></StyledLink>

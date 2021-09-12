@@ -1,9 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import App from './App';
 import { Provider } from 'react-redux';
 import store from './store/store';
+import './index.css';
 
 const Global = createGlobalStyle`
 * {
@@ -49,11 +51,13 @@ const theme = {
 }
 
 ReactDOM.render(
-  <Provider store={store}> 
-    <ThemeProvider theme={theme}>
-      <Global/>
-      <App />
-    </ThemeProvider>
-  </Provider>,
+    <Provider store={store}> 
+      <ThemeProvider theme={theme}>
+        <BrowserRouter>
+          <Global/>
+          <App />
+        </BrowserRouter>
+      </ThemeProvider>
+    </Provider>,
   document.getElementById('root')
 );

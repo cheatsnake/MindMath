@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 import styled from 'styled-components';
 import About from './pages/About';
 import Game from './pages/Game';
@@ -14,13 +14,13 @@ const StyledApp = styled.div`
     max-width: 425px;
     margin: 0 auto;
     min-height: 100vh;
-    background-color: ${props => props.theme.colors.dark};
     color: ${props => props.theme.font.dark};
 `
 
 const App = () => {
+
     return (
-        <BrowserRouter>
+        <>
             <StyledApp>
                 <Switch>
                     <Route path="/menu">
@@ -42,9 +42,23 @@ const App = () => {
                         <Tips/>
                     </Route>
                     <Redirect to="/menu"/>
-                </Switch>
+                </Switch> 
             </StyledApp>
-        </BrowserRouter>
+            <div className="area" >
+            <ul className="circles">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+            </ul>
+            </div >
+        </>
     );
 };
 

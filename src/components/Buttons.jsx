@@ -18,7 +18,7 @@ const StyledMenuButton = styled(Link)`
     border: none;
     border-radius: 0.2rem;
     transition: 0.5s all;
-    background-color: ${props => props.theme.colors.grey};
+    background: ${props => props.bg || props.theme.colors.grey};
     color: ${props => props.theme.font.dark};
     width: 100%;
     margin-top: 1rem;
@@ -28,7 +28,7 @@ const StyledMenuButton = styled(Link)`
     text-align: center;
     text-decoration: none;
     &:hover {
-        background-color: ${props => props.theme.colors.accent};
+        background: ${props => props.theme.colors.accent};
     }
 `
 

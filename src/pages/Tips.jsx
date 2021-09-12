@@ -5,39 +5,30 @@ import { StyledDescr, StyledSubTitle, StyledTitle } from '../components/Texts';
 
 const Tips = () => {
 
-    function createMarkup(text) {
-        return {__html: text};
-    }
-
-    function MyComponent() {
-        return <div dangerouslySetInnerHTML={createMarkup()} />;
-    }
-
-
     return (
         <Flexbox direction="column" justify="center" align="center" padding="2rem 1rem">
             <BackButton/>
             <StyledTitle fsize="1.5rem">Useful tips</StyledTitle>
-            <StyledDescr align="left">
+            {/* <StyledDescr align="left">
                 Here you will find some really effective tips on the web on how to improve your oral score.
-            </StyledDescr>
+            </StyledDescr> */}
             <Flexbox direction="column" padding="1rem 0">
                 <StyledSubTitle align="left"># Adding numbers</StyledSubTitle>
                 <StyledDescr align="left">
                 <p
                     dangerouslySetInnerHTML={{__html: `
-                    To learn how to add large numbers in your mind, you need to be able to accurately add numbers up to 10. Ultimately, any complex task is reduced to performing a few trivial actions.
+                    Example: 2465 + 289 = ?
                     <br><br>
-                    For example, we add the numbers 8 and 6.
-                    To get 10 from 8, 2 is missing.<br>
-                    Then we will have to add 4=6-2 to 10.<br>
-                    As a result, we get: 8+6=(8+2)+4=10+4=14<br>
-                    The main trick with adding large numbers is to break them into bit parts, and then add these parts together.
+                    The algorithm of actions:
                     <br><br>
-                    Let's say we need to add two numbers: 356 and 728.
-                    The number 356 can be represented as 300+50+6.<br>
-                    Similarly, 728 will have the form 700+20+8.<br>
-                    Now we add up: 356+728=(300+700)+(50+20)+(8+6)=1000+70+14=1084
+                    1. We decompose all the numbers into digits: we add units with units, tens with tens, thousands with thousands.<br>
+                    2. 2000+0=2000 (there are no thousands in 289) <br>
+                    3. 400+200=600<br>
+                    4. 60+80=140<br>
+                    5. 5+9=14<br>
+                    6. Add all the resulting numbers <br> 2000+600+140+14=2754
+                    <br><br>
+                    The answer is ready, the calculations are carried out in a fast and simple way
                     `}}
                 />
                 </StyledDescr>
@@ -48,79 +39,59 @@ const Tips = () => {
                 <StyledDescr align="left">
                 <p
                     dangerouslySetInnerHTML={{__html: `
-                    Subtracting numbers will also be easy. But unlike addition, where each number is divided into bit parts, when subtracting, only the number that we subtract needs to be "split".
+                    Example: 567-341=?
                     <br><br>
-                    For example, how many will be 528-321?<br>
-                    We divide the number 321 into bit parts and get:<br>
-                    321=300+20+1.
-                    Now we count:<br>
-                    528-300-20-1=228-20-1=208-1=207
+                    The algorithm of actions:
+                    <br><br>
+                    1. Divide the number into pieces (digits)<br>
+                    2. 500-300=200<br>
+                    3. 60-40=20<br>
+                    4. 7-1=6<br>
+                    5. Find the amount 200+20+6=226
                     `}}
                 />
                 </StyledDescr>
             </Flexbox>
 
             <Flexbox direction="column" padding="1rem 0">
-                <StyledSubTitle align="left"># Multiplying multi-digit numbers by single-digit ones</StyledSubTitle>
+                <StyledSubTitle align="left"># Multiplying numbers</StyledSubTitle>
                 <StyledDescr align="left">
                 <p
                     dangerouslySetInnerHTML={{__html: `
-                    First, practice multiplying multi-digit numbers by single-digit ones. 
+                    Example: 37x56
+                    <br><br>
+                    The algorithm of actions:
+                    <br><br>
+                    1. 37 multiply by 50, then with the 37th we multiply by 6.<br>
+                    2. 37x5= 30x5+7x5=150+35=185. <br>
+                    We add 0 to the answer, since the multiplication occurred by tens, not ones. <br>
+                    We get that 37x50=1850<br>
+                    3. 37x6=30x6+7x6=180+42=222.<br>
+                    4. The final stage: we add 200, 20 and 2. 4 to 1850.
+                    <br><br>
+                    Result: 2072
+                    `}}
+                />
+                </StyledDescr>
+            </Flexbox>
+
+            <Flexbox direction="column" padding="1rem 0">
+                <StyledSubTitle align="left"># Division numbers</StyledSubTitle>
+                <StyledDescr align="left">
+                <p
+                    dangerouslySetInnerHTML={{__html: `
+                    Example: 1584 / 3
+                    <br><br>
+                    The algorithm of actions:
+                    <br><br>
+                    1. We are looking for the occurrence of the digit 3 in the number 1584 without a remainder
                     <br>
-                    Let's multiply 528 by 6.<br>
-                    Divide the number 528 into digits and go from the highest to the lowest.<br>
-                    First we multiply, and then we add the results.<br>
-                    528 = 500+20+8 528*6 =<br>
-                    = 500*6+20*6+8*6 =<br>
-                    = 3000+120+48 = 3168
-                    `}}
-                />
-                </StyledDescr>
-            </Flexbox>
-
-            <Flexbox direction="column" padding="1rem 0">
-                <StyledSubTitle align="left"># Multiplying two-digit numbers</StyledSubTitle>
-                <StyledDescr align="left">
-                <p
-                    dangerouslySetInnerHTML={{__html: `
-                    There is nothing complicated here either, only the load on short-term memory is a little more.
-                    Multiply 28 and 32. <br>
-                    To do this, we will reduce the entire operation to multiplication by single-digit numbers. <br><br>
-                    Let's imagine 32 as 30+2 <br>
-                    28*32 = 28*30+28*2 = 20*30+8*30+20*2+8*2 = 600+240+40+16 = 896<br>
-                    Another example. Multiply 79 by 57.<br>
-                    This means that you need to take the number " 79 " 57 times.<br>
-                    Let's break the entire operation into stages.<br>
-                    First, we multiply 79 by 50, and then-79 by 7.<br>
-                    79*50 = (70+9)*50 = 3500+450 = 3950<br>
-                    79*7 = (70+9)*7 = 490+63 = 553 3950+553 = 4503
-                    `}}
-                />
-                </StyledDescr>
-            </Flexbox>
-
-            <Flexbox direction="column" padding="1rem 0">
-                <StyledSubTitle align="left"># Division by a two-digit number</StyledSubTitle>
-                <StyledDescr align="left">
-                <p
-                    dangerouslySetInnerHTML={{__html: `
-                    When dividing by a two-digit number, you need to use the rule of the last digit of the result when multiplying two numbers.
-                    <br><br>
-                    For example, multiply 1325 by 656. According to the rule, the last digit in the resulting number will be 0, since 5*6=30. Indeed, 1325*656=869200.
-                    <br><br>
-                    Now, armed with this valuable information, let's consider division by a two-digit number. How much is 4424:56?
-                    <br><br>
-                    Initially, we will use the "fitting" method and find the limits in which the result lies. We need to find a number that, when multiplied by 56, will give 4424. Intuitively, let's try the number 80.
-                    <br><br>
-                    56*80=4480
-                    <br><br>
-                    This means that the desired number is less than 80 and clearly more than 70. Let's determine its last digit. Its product by 6 should end with the number 4. According to the multiplication table, the results 4 and 9 are suitable for us. It is logical to assume that the result of division can be either the number 74 or 79. Checking it out:
-                    <br><br>
-                    This means that the desired number is less than 80 and clearly more than 70. Let's determine its last digit. Its product by 6 should end with the number 4. According to the multiplication table, the results 4 and 9 are suitable for us.
-                    It is logical to assume that the result of division can be either the number 74 or 79.<br>
-                    Check: 79*56=4424<br>
-                    Done, the solution has been found!
-                    If the number 79 did not fit, the second option would definitely be correct.
+                    2. The nearest round number that is divisible by 3 is 1500
+                    <br>
+                    3. We decompose 1584 into 1500 and 84<br>
+                    1500:3=500<br>
+                    84:3=60:3+24:3=28<br>
+                    4. 500+28=528, which is the answer.
                     `}}
                 />
                 </StyledDescr>
