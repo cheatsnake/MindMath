@@ -1,20 +1,20 @@
 {
   "files": {
     "main.css": "/MindMath/static/css/main.dbbb31a4.chunk.css",
-    "main.js": "/MindMath/static/js/main.c6c25963.chunk.js",
-    "main.js.map": "/MindMath/static/js/main.c6c25963.chunk.js.map",
+    "main.js": "/MindMath/static/js/main.d706fef2.chunk.js",
+    "main.js.map": "/MindMath/static/js/main.d706fef2.chunk.js.map",
     "runtime-main.js": "/MindMath/static/js/runtime-main.dd62c542.js",
     "runtime-main.js.map": "/MindMath/static/js/runtime-main.dd62c542.js.map",
-    "static/js/2.b4996f1d.chunk.js": "/MindMath/static/js/2.b4996f1d.chunk.js",
-    "static/js/2.b4996f1d.chunk.js.map": "/MindMath/static/js/2.b4996f1d.chunk.js.map",
+    "static/js/2.3d3776eb.chunk.js": "/MindMath/static/js/2.3d3776eb.chunk.js",
+    "static/js/2.3d3776eb.chunk.js.map": "/MindMath/static/js/2.3d3776eb.chunk.js.map",
     "index.html": "/MindMath/index.html",
     "static/css/main.dbbb31a4.chunk.css.map": "/MindMath/static/css/main.dbbb31a4.chunk.css.map",
-    "static/js/2.b4996f1d.chunk.js.LICENSE.txt": "/MindMath/static/js/2.b4996f1d.chunk.js.LICENSE.txt"
+    "static/js/2.3d3776eb.chunk.js.LICENSE.txt": "/MindMath/static/js/2.3d3776eb.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.dd62c542.js",
-    "static/js/2.b4996f1d.chunk.js",
+    "static/js/2.3d3776eb.chunk.js",
     "static/css/main.dbbb31a4.chunk.css",
-    "static/js/main.c6c25963.chunk.js"
+    "static/js/main.d706fef2.chunk.js"
   ]
 }
