@@ -9,6 +9,7 @@ const defaultState = {
     mulLenght: 99,
     divLenght: 99,
     mode: '',
+    roundTime: 1,
 }
 
 const ADDITION = 'ADDITION',
@@ -19,7 +20,8 @@ const ADDITION = 'ADDITION',
       CHANGE_ADD = 'CHANGE_BIT',
       CHANGE_SUB = 'CHANGE_SUB',
       CHANGE_MUL = 'CHANGE_MUL',
-      CHANGE_DIV = 'CHANGE_DIV';
+      CHANGE_DIV = 'CHANGE_DIV',
+      CHANGE_TIME = 'CHANGE_TIME';
 
 function generate(length) {
     return Math.round(Math.random() * length);
@@ -61,6 +63,8 @@ const TaskReducer = (state = defaultState, action) => {
             return {...state, mulLenght: action.payload}
         case CHANGE_DIV:
             return {...state, divLenght: action.payload}
+        case CHANGE_TIME:
+            return {...state, roundTime: action.payload}
         default:
             return state;
     }
@@ -72,3 +76,4 @@ export const changeAddTaskReducer = (payload) => ({type: CHANGE_ADD, payload});
 export const changeSubTaskReducer = (payload) => ({type: CHANGE_SUB, payload});
 export const changeMulTaskReducer = (payload) => ({type: CHANGE_MUL, payload});
 export const changeDivTaskReducer = (payload) => ({type: CHANGE_DIV, payload});
+export const changeTimeTaskReducer = (payload) => ({type: CHANGE_TIME, payload});

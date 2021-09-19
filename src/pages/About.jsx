@@ -22,7 +22,7 @@ const About = () => {
         <Flexbox direction="column" heigth="100%" justify="center" align="center" padding="2rem 1rem 1rem 1rem">
             <BackButton/>
             <h1>Mind Math</h1>
-            <StyledSubTitle>version 1.0.0 public</StyledSubTitle>
+            <StyledSubTitle>version 1.1.0 public</StyledSubTitle>
             <StyledDescr align="left">
             Mind Math is a open source web application for training oral counting. The application has 5 main modes: a mode with addition of numbers, subtraction, multiplication, division and a random mode combining the previous 4. You can independently configure the maximum number of digits for each mode.
             </StyledDescr>

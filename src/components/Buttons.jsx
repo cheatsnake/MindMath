@@ -131,12 +131,28 @@ const StyledLinkButton = styled.a`
     }
 `
 
+const StyledRefreshButton = styled(StyledButton)`
+    margin-top: 4rem;
+    font-size: 4rem;
+    &:hover {
+        color: ${props => props.theme.colors.accent};
+    }
+`
+
 export const BackButton = () => {
     const dispatch = useDispatch();
     return (
         <StyledBackButton onClick={() => dispatch(clsAnswerReducer())} to="/MindMath/menu">
             <ion-icon name="arrow-back-outline"></ion-icon>
         </StyledBackButton>
+    );
+};
+
+export const RefreshButton = (props) => {
+    return (
+        <StyledRefreshButton onClick={props.refresh}>
+            <ion-icon name="refresh-outline"></ion-icon>
+        </StyledRefreshButton>
     );
 };
 

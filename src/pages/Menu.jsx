@@ -13,7 +13,7 @@ const Menu = () => {
                 </StyledMenuButton>
                 <StyledMenuButton 
                     to="/MindMath/tips">Useful tips
-                    </StyledMenuButton>
+                </StyledMenuButton>
                 <StyledMenuButton 
                     to="/MindMath/settings">Settings
                 </StyledMenuButton>

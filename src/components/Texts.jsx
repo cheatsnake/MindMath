@@ -3,13 +3,13 @@ import styled from "styled-components";
 const StyledTitle = styled.h1`
     font-weight: 700;
     font-size: ${props => props.fsize || '2rem'};
-    color: ${props => props.theme.colors.accent};
+    color: ${props => props.color || props.theme.colors.accent};
 `
 
 const StyledDescr = styled.div`
     line-height: 1.4rem;
     font-weight: 300;
-    margin-top: 1rem;
+    margin-top: ${props => props.marginTop || '1rem'};
     text-align: ${props => props.align || 'center'};
 `
 

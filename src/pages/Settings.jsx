@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { BackButton, StyledBitButton } from '../components/Buttons';
 import Flexbox from '../components/Flexbox';
 import { useDispatch, useSelector } from 'react-redux';
-import { changeAddTaskReducer, changeSubTaskReducer, changeMulTaskReducer, changeDivTaskReducer } from '../store/TaskReducer';
+import { changeAddTaskReducer, changeSubTaskReducer, changeMulTaskReducer, changeDivTaskReducer, changeTimeTaskReducer } from '../store/TaskReducer';
 import { StyledDescr, StyledSubTitle, StyledTitle} from '../components/Texts';
 
 const StyledCount = styled.div`
@@ -32,13 +32,23 @@ const Settings = () => {
         }
     }
 
+    function changeTime(func, state) {
+        if (state > 5) {
+            dispatch(func(1));
+        } else if (state < 1) {
+            dispatch(func(5));
+        } else {
+            dispatch(func(state));
+        }
+    }
+
     return (
         <Flexbox direction="column" justify="center" align="center" padding="1rem">
             <BackButton/>
             <StyledTitle>Settings</StyledTitle>
             <Flexbox direction="column">
-                <StyledDescr>Select the maximum bit depth of the numbers for various arithmetic operations.</StyledDescr>
-                <Flexbox justify="space-between" align="center" margin="2rem 0 0 0">
+                <StyledDescr align="left">Select the maximum bit depth of the numbers for various arithmetic operations.</StyledDescr>
+                <Flexbox justify="space-between" align="center" margin="1rem 0 0 0">
                     <StyledSubTitle>Addition</StyledSubTitle>
                     <Flexbox width="auto">
                         <StyledBitButton onClick={() => onUpBit(changeAddTaskReducer, task.addLenght)}>+</StyledBitButton>
@@ -68,6 +78,15 @@ const Settings = () => {
                         <StyledBitButton onClick={() => onUpBit(changeDivTaskReducer, task.divLenght)}>+</StyledBitButton>
                         <StyledCount>{task.divLenght.toString().length}</StyledCount>
                         <StyledBitButton onClick={() => onDownBit(changeDivTaskReducer, task.divLenght)}>&#8211;</StyledBitButton>
+                    </Flexbox>
+                </Flexbox>
+                <StyledDescr marginTop="2rem" align="left">Select the maximum round time.</StyledDescr>
+                <Flexbox justify="space-between" align="center" margin="1rem 0 0 0">
+                    <StyledSubTitle>Time</StyledSubTitle>
+                    <Flexbox width="auto">
+                        <StyledBitButton onClick={() => changeTime(changeTimeTaskReducer, task.roundTime + 1)}>+</StyledBitButton>
+                        <StyledCount>{task.roundTime}m</StyledCount>
+                        <StyledBitButton onClick={() => changeTime(changeTimeTaskReducer, task.roundTime - 1)}>&#8211;</StyledBitButton>
                     </Flexbox>
                 </Flexbox>
             </Flexbox>

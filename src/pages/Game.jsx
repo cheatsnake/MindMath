@@ -5,30 +5,16 @@ import { BackButton, StyledKeyboardButton } from '../components/Buttons';
 import Flexbox from '../components/Flexbox';
 import { useDispatch, useSelector } from 'react-redux';
 import { addAnswerReducer, delAnswerReducer, clsAnswerReducer} from '../store/AnswerReducer';
+import ResultWindow from '../components/ResultWindow';
 
-const StyledStats = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+const StyledTimer = styled.div`
     opacity: 0.7;
     position: absolute;
-    top: 0.7rem;
-    right: 0.7rem;
-    font-size: 0.9rem;
-    font-weight: 200;
-    div {
-        margin-left: 10px;
-        &:nth-child(1) {
-            color: ${props => props.theme.colors.accent};
-        }
-        &:nth-child(2) {
-            color: #e74747;
-        }
-        &:nth-child(3) {
-            color: #cacaca;
-        }
-    }
-    
+    top: 1.4rem;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.2rem;
+    font-weight: 300;
 `
 
 const StyledTask = styled.div`
@@ -54,12 +40,14 @@ const Game = (props) => {
     const answer = useSelector(state => state.answer.answer);
     const task = useSelector(state => state.task.task);
     const mode = useSelector(state => state.task.mode);
+    const time = useSelector(state => state.task.roundTime);
 
     const [stats, setStats] = useState({
         true: 0,
         false: 0,
         accuracy: 0
     })
+    const [roundTime, setRoundTime] = useState(time * 60);
     
     const modes = ['ADDITION', 'SUBSTRACTION', 'MULTIPLICATION', 'DIVISION'];
 
@@ -114,20 +102,39 @@ const Game = (props) => {
         }
     }
 
+    function refresh() {
+        setRoundTime(time * 60);
+        setStats({
+            true: 0,
+            false: 0,
+            accuracy: 0
+        });
+    }
+
     useEffect(() => addTask(), []);
+
+    useEffect(() => {
+        let interval = null;
+        interval = setInterval(() => {
+            setRoundTime(roundTime => roundTime - 1);
+        }, 1000);
+        if (roundTime === 0) {
+            clearInterval(interval);
+        }
+        return () => clearInterval(interval);
+      }, [roundTime]);
 
     return (
         <Flexbox direction="column">
+            {roundTime === 0 ? <ResultWindow 
+                true={stats.true} 
+                false={stats.false} 
+                accuracy={stats.accuracy} 
+                time={time + "m"} 
+                refresh={refresh}/> 
+                : null}
             <BackButton/>
-            {
-                stats.accuracy ? (
-                    <StyledStats>
-                        <div>{stats.true}</div>
-                        <div>{stats.false}</div>
-                        <div>{stats.accuracy}</div>
-                    </StyledStats>
-                ) : null
-            }
+            <StyledTimer>{roundTime}</StyledTimer>
             <Flexbox direction="column" justify="center" align="center" height="100%">
                 <StyledTask>{task.first} {task.operation === '*' ? '×' : task.operation} {task.second}</StyledTask>
                 <StyledTask>?</StyledTask>
