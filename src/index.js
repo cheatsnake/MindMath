@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import App from './App';
 import { Provider } from 'react-redux';
@@ -53,10 +53,10 @@ const theme = {
 ReactDOM.render(
     <Provider store={store}> 
       <ThemeProvider theme={theme}>
-        <BrowserRouter>
+        <HashRouter>
           <Global/>
           <App />
-        </BrowserRouter>
+        </HashRouter>
       </ThemeProvider>
     </Provider>,
   document.getElementById('root')

@@ -142,7 +142,7 @@ const StyledRefreshButton = styled(StyledButton)`
 export const BackButton = () => {
     const dispatch = useDispatch();
     return (
-        <StyledBackButton onClick={() => dispatch(clsAnswerReducer())} to="/MindMath/menu">
+        <StyledBackButton onClick={() => dispatch(clsAnswerReducer())} to="/menu">
             <ion-icon name="arrow-back-outline"></ion-icon>
         </StyledBackButton>
     );

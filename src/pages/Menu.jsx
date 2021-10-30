@@ -9,16 +9,16 @@ const Menu = () => {
             <StyledTitle>Mind Math</StyledTitle>
             <Flexbox direction="column" margin="1rem" justify="center" align="center">
                 <StyledMenuButton 
-                    to="/MindMath/modes">Start game
+                    to="/modes">Start game
                 </StyledMenuButton>
                 <StyledMenuButton 
-                    to="/MindMath/tips">Useful tips
+                    to="/tips">Useful tips
                 </StyledMenuButton>
                 <StyledMenuButton 
-                    to="/MindMath/settings">Settings
+                    to="/settings">Settings
                 </StyledMenuButton>
                 <StyledMenuButton 
-                    to="/MindMath/about">About
+                    to="/about">About
                 </StyledMenuButton>
             </Flexbox>
         </Flexbox>

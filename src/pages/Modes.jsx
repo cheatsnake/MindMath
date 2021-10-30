@@ -17,23 +17,23 @@ const Modes = () => {
             <BackButton/>
             <StyledTitle fsize="1.5rem">Choose game mode</StyledTitle>
             <Flexbox justify="space-around" margin="1rem 0 0 0" wrap="wrap">
-                <StyledModeButton onClick={() => onMode('ADDITION')} to='/MindMath/game'>
+                <StyledModeButton onClick={() => onMode('ADDITION')} to='/game'>
                     <ion-icon name="add-outline"></ion-icon>
                     Addition
                 </StyledModeButton>
-                <StyledModeButton onClick={() => onMode('SUBSTRACTION')} to='/MindMath/game'>
+                <StyledModeButton onClick={() => onMode('SUBSTRACTION')} to='/game'>
                     <ion-icon name="remove-outline"></ion-icon>
                     Subtraction
                 </StyledModeButton>
-                <StyledModeButton onClick={() => onMode('MULTIPLICATION')} to='/MindMath/game'>
+                <StyledModeButton onClick={() => onMode('MULTIPLICATION')} to='/game'>
                     <ion-icon name="close-outline"></ion-icon>
                     Multiplication
                 </StyledModeButton>
-                <StyledModeButton onClick={() => onMode('DIVISION')} to='/MindMath/game'>
+                <StyledModeButton onClick={() => onMode('DIVISION')} to='/game'>
                     <ion-icon name="pause-outline"></ion-icon>
                     Division
                 </StyledModeButton>
-                <StyledModeButton onClick={() => onMode(null)} to="/MindMath/game">
+                <StyledModeButton onClick={() => onMode(null)} to="/game">
                     <ion-icon name="cube-outline"></ion-icon>
                     Random
                 </StyledModeButton>

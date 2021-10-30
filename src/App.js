@@ -23,25 +23,25 @@ const App = () => {
         <>
             <StyledApp>
                 <Switch>
-                    <Route path="/MindMath/menu">
+                    <Route path="/menu">
                         <Menu/>
                     </Route>
-                    <Route path="/MindMath/modes">
+                    <Route path="/modes">
                         <Modes/>
                     </Route>
-                    <Route path="/MindMath/game">
+                    <Route path="/game">
                         <Game/>
                     </Route>
-                    <Route path="/MindMath/settings">
+                    <Route path="/settings">
                         <Settings/>
                     </Route>
-                    <Route path="/MindMath/about">
+                    <Route path="/about">
                         <About/>
                     </Route>
-                    <Route path="/MindMath/tips">
+                    <Route path="/tips">
                         <Tips/>
                     </Route>
-                    <Redirect to="/MindMath/menu"/>
+                    <Redirect to="/menu"/>
                 </Switch> 
             </StyledApp>
             <div className="area" >
